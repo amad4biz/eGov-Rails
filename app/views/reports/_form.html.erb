@@ -1,0 +1,57 @@
+<%= form_with(model: report, local: true) do |form| %>
+  <% if report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+      <% report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :report_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :report_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_id %>
+    <%= form.select :status_id, options_for_select(Status.all.map{|s|[s.name, s.id]}), id: :report_status_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :report_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :report_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lat %>
+    <%= form.text_field :lat, id: :report_lat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lng %>
+    <%= form.text_field :lng, id: :report_lng %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observation %>
+    <%= form.text_area :observation, id: :report_observation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
