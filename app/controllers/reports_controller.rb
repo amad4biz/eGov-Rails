@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
   before_action :require_user, only: [:index, :show, :update, :destroy]
 
   def start
-    ActionCable.server.broadcast('reports', Report.all)
+    ActionCable.server.broadcast('reports', Report.all.order(created_at: :desc))
     render json: {}, status: :ok
   end
 
@@ -22,14 +22,14 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(JSON.parse(request.body.read))
 
-    if @report.save
-      ActionCable.server.broadcast('reports', Report.all.order(created_at: :desc))
 
+    if @report.save
       render json: {}, status: :created
     else
       render json: @report.errors, status: :unprocessable_entity
     end
 
+    ActionCable.server.broadcast('reports', Report.all.order(created_at: :desc))
   end
 
   def update
