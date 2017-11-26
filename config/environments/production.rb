@@ -91,4 +91,4 @@ Rails.application.configure do
 
 end
 
-Rails.application.config.action_cable.allowed_request_origins = ['http://egov-app.surge.sh']
+Rails.application.config.action_cable.allowed_request_origins = ['https://egov-app.herokuapp.com/']
