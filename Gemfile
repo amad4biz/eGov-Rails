@@ -32,6 +32,8 @@ gem 'devise'
 
 gem 'teacup-rails'
 
+gem 'redis'
+
 ruby '2.4.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
