@@ -1,43 +1,46 @@
 <p id="notice"><%= notice %></p>
+<div class='show-report'>
+  <p>
+    <strong>Titulo:</strong>
+    <%= @report.title %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @report.title %>
-</p>
+  <p>
+    <strong>Descrição:</strong>
+    <%= @report.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @report.description %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= @report.status.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @report.status.name %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @report.email %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @report.email %>
-</p>
+  <p>
+    <strong>Image:</strong>
+    <div>
+      <img src="<%=@report.image%>"/>
+    </div>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <img src="<%=@report.image%>"/>
-</p>
+  <p>
+    <strong>Lat:</strong>
+    <%= @report.lat %>
+  </p>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @report.lat %>
-</p>
+  <p>
+    <strong>Lng:</strong>
+    <%= @report.lng %>
+  </p>
 
-<p>
-  <strong>Lng:</strong>
-  <%= @report.lng %>
-</p>
+  <p>
+    <strong>Observação da administração:</strong>
+    <%= @report.observation %>
+  </p>
 
-<p>
-  <strong>Observação:</strong>
-  <%= @report.observation %>
-</p>
-
-<%= link_to 'Edit', edit_report_path(@report) %> |
+  <%= link_to 'Editar', edit_report_path(@report) %>
+</div>

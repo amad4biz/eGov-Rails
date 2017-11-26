@@ -1,3 +1,97 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.actions,
+.field{
+  textarea,
+  input{
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+
+  }
+  font-size: 1.4rem;
+  input[type=checkbox]{
+    width: 20px;
+  }
+}
+
+select{
+  height: 50px;
+  width: 170px;
+}
+
+input[type=submit]{
+  background-color: darkgreen;
+  color: white;
+}
+
+.navbar-text{
+  background-color: gainsboro;
+  color: black;
+  text-align: right;
+  height: 50px;
+  line-height: 50px;
+  padding: 10px;
+}
+
+.nav{
+  float: left;
+  position: absolute;
+  top: 0;
+  display: inline-flex;
+  list-style: none;
+  line-height: 70px;
+  margin-top: 14px;
+  font-size: 2rem;
+  li{
+    margin-left: 10px;
+    border-left: 5px solid white;
+    padding-left: 20px;
+    a{
+      text-decoration: none;
+      color: white;
+      font-variant: small-caps;
+      &:hover{
+        color: black;
+        background-color: inherit;
+      }
+    }
+  }
+}
+
+table{
+  width: 100%;
+  tr{
+    text-align: center;
+  }
+  thead{
+    text-align: left;
+    tr{
+      background: darkkhaki;
+      font-size: 1rem;
+      color: white;
+      line-height: 36px;
+    }
+  }
+  td{
+    font-size: 1.3rem;
+    padding: 10px 0;
+  }
+}
+
+.live-image {
+  float: left;
+  position: absolute;
+  top: 95px;
+  img{
+    width: 100px;
+  }
+}
+
+.show-report{
+  text-align: center;
+  p{
+    font-size: 1.6rem;
+  }
+}

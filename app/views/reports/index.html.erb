@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reports</h1>
+<h1>Todos os reports</h1>
 
 <table>
   <thead>
@@ -26,13 +26,11 @@
         <td><%= report.image_name %></td>
         <td><%= report.lat %></td>
         <td><%= report.lng %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
+        <td><%= link_to 'Ação', report %></td>
+        <td><%= link_to 'Editar', edit_report_path(report) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Report', new_report_path %>

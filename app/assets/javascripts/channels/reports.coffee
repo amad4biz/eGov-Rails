@@ -9,7 +9,7 @@ template = renderable (data)->
           td report.email
           td report.image_name
           td ->
-            a href: '/reports/'+report.id, "Show"
+            a href: '/reports/'+report.id, "Info"
 
 
 App.reports = App.cable.subscriptions.create "ReportsChannel",

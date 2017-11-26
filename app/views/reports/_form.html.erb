@@ -12,14 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :report_title %>
+    <label for="title">Título</label>
+    <%= form.text_field :title, id: :report_title, disabled: true %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :report_description %>
+    <label for="description">Descrição</label>
+    <%= form.text_area :description, id: :report_description, disabled: true %>
   </div>
+
+
+  <div class="field">
+    <label for="email">E-mail</label>
+    <%= form.text_field :email, id: :report_email, disabled: true %>
+  </div>
+
+  <hr/>
 
   <div class="field">
     <%= form.label :status_id %>
@@ -27,27 +35,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :report_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :report_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lat %>
-    <%= form.text_field :lat, id: :report_lat %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lng %>
-    <%= form.text_field :lng, id: :report_lng %>
-  </div>
-
-  <div class="field">
-    <%= form.label :observation %>
+    <label for="observation">Observação</label>
     <%= form.text_area :observation, id: :report_observation %>
   </div>
 
