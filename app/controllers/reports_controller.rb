@@ -1,48 +1,42 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :require_user
+  require 'json'
 
-  # GET /reports
-  # GET /reports.json
+  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:index, :show, :update, :destroy]
+
+  def start
+    ActionCable.server.broadcast('reports', Report.all)
+    render json: {}, status: :ok
+  end
+
   def index
     @reports = Report.all
   end
 
-  # GET /reports/1
-  # GET /reports/1.json
   def show
   end
 
-  # GET /reports/new
-  def new
-    @report = Report.new
-  end
-
-  # GET /reports/1/edit
   def edit
   end
 
-  # POST /reports
-  # POST /reports.json
   def create
-    @report = Report.new(report_params)
+    @report = Report.new(JSON.parse(request.body.read))
 
-    respond_to do |format|
-      if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
-        format.json { render :show, status: :created, location: @report }
-      else
-        format.html { render :new }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
-      end
+    if @report.save
+      ActionCable.server.broadcast('reports', Report.all.order(created_at: :desc))
+
+      render json: {}, status: :created
+    else
+      render json: @report.errors, status: :unprocessable_entity
     end
+
   end
 
-  # PATCH/PUT /reports/1
-  # PATCH/PUT /reports/1.json
   def update
     respond_to do |format|
       if @report.update(report_params)
+        ActionCable.server.broadcast('reports', Report.all.order(created_at: :desc))
+
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
@@ -52,8 +46,6 @@ class ReportsController < ApplicationController
     end
   end
 
-  # DELETE /reports/1
-  # DELETE /reports/1.json
   def destroy
     @report.destroy
     respond_to do |format|

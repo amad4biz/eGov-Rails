@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171125130023) do
     t.bigint "status_id"
     t.string "email"
     t.string "image"
+    t.string "image_name"
     t.string "lat"
     t.string "lng"
     t.string "observation"
